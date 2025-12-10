@@ -27,7 +27,7 @@ async function apiRequest(url, method = "GET", data = null) {
 
   if (data) opts.body = JSON.stringify(data);
 
-  const res = await fetch("http://localhost:5000" + url, opts);
+  const res = await fetch("https://women-safety-application.onrender.com" + url, opts);
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: "Unknown error" }));
     throw new Error(err.error || res.statusText);
@@ -65,7 +65,7 @@ async function login(event) {
   }
 
   try {
-    const res = await fetch("http://localhost:5000/api/login", {
+    const res = await fetch("https://women-safety-application.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
