@@ -1,3 +1,4 @@
+ import { API_URL } from "./config.js";
 // PWA Service Worker Registration
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
@@ -5,7 +6,7 @@ if ("serviceWorker" in navigator) {
     .then(() => console.log("Service Worker registered"))
     .catch((err) => console.error("SW registration failed:", err));
 }
-const API_BASE = window.location.origin; // Adjust if backend runs on different host
+
 let authToken = localStorage.getItem("authToken") || null;
 let currentUser = null;
 
@@ -27,7 +28,7 @@ async function apiRequest(url, method = "GET", data = null) {
 
   if (data) opts.body = JSON.stringify(data);
 
-  const res = await fetch("https://women-safety-application.onrender.com" + url, opts);
+  const res = await fetch(API_URL + url, opts);
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: "Unknown error" }));
     throw new Error(err.error || res.statusText);
