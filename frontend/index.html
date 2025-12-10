@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <link rel="manifest" href="/frontend/manifest.json">
+  <meta name="theme-color" content="#ff5722">
+
+  <link rel="apple-touch-icon" href="/frontend/images/icon-192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">🌸 Women Safety App</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contactSection">Contacts</a>
+      <a href="#sos">SOS</a>
+    </nav>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>Welcome to the Women Safety Dashboard</h1>
+      <p>Empowering safety through technology — connect, alert, and stay protected.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About This App</h2>
+    <p>
+      The Women Safety App is designed to help women stay safe and connected. 
+      You can add trusted contacts, send SOS alerts with your location, 
+      and notify them instantly in case of emergencies. 
+      Our goal is to create a safer environment using real-time technology.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contactSection" class="contacts">
+    <h2>Add & Manage Contacts</h2>
+    <form onsubmit="addContact(event)" class="contact-form">
+      <input id="contactName" placeholder="Name" required />
+      <input id="contactPhone" placeholder="Phone (e.g., +919876543210)" />
+      <input id="contactEmail" placeholder="Email" />
+      <button type="submit">Add Contact</button>
+    </form>
+
+    <h3>Your Contacts</h3>
+    <ul id="contactList" class="contact-list"></ul>
+  </section>
+
+  <!-- SOS Section -->
+  <section id="sos" class="sos">
+    <h2>🚨 SOS Alert</h2>
+    <p>Send an emergency alert to your trusted contacts immediately.</p>
+    <textarea id="sosMessage" placeholder="Enter your SOS message..."></textarea><br>
+    <button class="sos-btn" onclick="sendSOS()">🚨 Send SOS</button>
+  </section>
+
+  <!--  Map Preview -->
+    <div id="map" style="margin-top:15px; height:300px; border-radius:8px; display:none;"></div>
+  </section>
+
+  <!--call section-->
+  <section>
+  <h3>Quick Call</h3>
+  <a href="tel:100" class="btn danger">📞 Call Police (100)</a>
+  <a href="tel:112" class="btn danger">📞 Call National Helpline (112)</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Women Safety App | Made for women’s safety</p>
+  </footer>
+</body>
+</html>

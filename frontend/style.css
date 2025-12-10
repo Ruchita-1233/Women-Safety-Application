@@ -1,0 +1,240 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background and Body */
+body {
+  background: linear-gradient(to bottom right, #ffe5ec, #ffc2d1);
+  color: #333;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #ff4b77;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.navbar nav a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar nav a:hover {
+  text-decoration: underline;
+}
+
+.logout-btn {
+  background: white;
+  color: #ff4b77;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #ffe5ec;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: url('https://kiteinsights.com/hubfs/Hero-Empowering-Women_0.png') center/cover no-repeat;
+  color: white;
+}
+
+.hero-text {
+  background: rgba(0,0,0,0.5);
+  display: inline-block;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+/* About Section */
+.about {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #fff0f6;
+}
+
+.about h2 {
+  color: #ff4b77;
+  margin-bottom: 1rem;
+}
+
+/* Contact Section */
+.contacts {
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 700px;
+  margin: 2rem auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form input {
+  padding: 10px;
+  border: 1px solid #ffb3c6;
+  border-radius: 8px;
+}
+
+.contact-form button {
+  background: #ff4b77;
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #ff6b94;
+}
+
+.contact-list {
+  list-style: none;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.contact-list li {
+  padding: 0.5rem;
+  background: #ffe5ec;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+/* SOS Section */
+.sos {
+  text-align: center;
+  padding: 2rem;
+  background: #fff0f6;
+}
+
+.sos textarea {
+  width: 80%;
+  max-width: 600px;
+  height: 100px;
+  margin-top: 1rem;
+  padding: 10px;
+  border: 1px solid #ffb3c6;
+  border-radius: 10px;
+  resize: none;
+  font-size: 1rem;
+}
+
+.sos-btn {
+  margin-top: 1rem;
+  background: #ff003c;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+  transition: 0.3s;
+}
+
+.sos-btn:hover {
+  background: #ff2f5b;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,0,60,0.6); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255,0,60,0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,0,60,0); }
+}
+
+/* 🆕 Dropdown and Buttons */
+#templateSelect {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ffb3c6;
+  border-radius: 8px;
+  width: 250px;
+  font-size: 1rem;
+  background: white;
+  color: #333;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn.danger {
+  background: #ff4b77;
+  color: white;
+}
+
+.btn.danger:hover {
+  background: #ff6b94;
+}
+
+.btn.info {
+  background: #007bff;
+  color: white;
+}
+
+.btn.info:hover {
+  background: #339cff;
+}
+
+/* 🆕 Map Section */
+#map {
+  margin-top: 20px;
+  display: none;
+  width: 80%;
+  max-width: 600px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #ff4b77;
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}

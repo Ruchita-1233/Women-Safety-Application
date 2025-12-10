@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>WOMEN'S SAFETY APP — Login</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ff5722">
+
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+</head>
+<body class="login-body">
+  <div class="overlay"></div>
+  
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="logo-big">WS</div>
+      <h1>EMERGENCY VIRTUAL ASSISSTANT</h1>
+      <p class="tagline">Empowering Safety, Anytime, Anywhere</p>
+    </div>
+
+    <form id="loginForm" class="login-form">
+      <input id="email" type="email" placeholder="Email" required autocomplete="username">
+      <input id="password" type="password" placeholder="Enter Password" required autocomplete="current-password">
+      <button type="submit" class="btn primary">Log in</button>
+      <a href="#" id="toggleSignup" class="muted">Create account</a>
+    </form>
+  </div>
+
+  <script type="module">
+    import { API_URL } from './config.js';
+    const loginForm = document.getElementById('loginForm');
+    const toggle = document.getElementById('toggleSignup');
+    let signupMode = false;
+
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      signupMode = !signupMode;
+      document.querySelector('.login-brand h1').textContent = signupMode ? 'Create account' : 'Women Safety';
+      document.querySelector('button[type="submit"]').textContent = signupMode ? 'Sign up' : 'Log in';
+      toggle.textContent = signupMode ? 'Have an account? Log in' : 'Create account';
+    });
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const endpoint = signupMode ? '/api/signup' : '/api/login';
+
+      try {
+        const res = await fetch(API_URL + endpoint, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ email, password })
+        });
+
+        if (!res.ok) {
+          const txt = await res.text();
+          alert('Authentication failed: ' + res.status + ' ' + txt);
+          return;
+        }
+
+        const data = await res.json().catch(() => ({}));
+        if (data.token) {
+          localStorage.setItem('authToken', data.token);
+          location.href = 'index.html';
+        } else {
+          alert(data.error || 'Authentication failed');
+        }
+      } catch (err) {
+        alert('Error connecting to backend: ' + err.message);
+      }
+    });
+  </script>
+</body>
+</html>
