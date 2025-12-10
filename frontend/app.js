@@ -1,4 +1,4 @@
- import { API_URL } from "./config.js";
+
 // PWA Service Worker Registration
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
