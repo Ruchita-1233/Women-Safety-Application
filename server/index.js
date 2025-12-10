@@ -9,7 +9,6 @@ const { User, Contact, SOS } = require("./models");
 const twilio = require("twilio"); 
 
 const app = express();
-app.use(cors());
 app.use(express.json());
 
 const path = require("path");
