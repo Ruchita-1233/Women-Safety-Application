@@ -54,6 +54,7 @@ async function signup(event) {
 }
 
 // 🔑 Login
+// 🔑 Login
 async function login(event) {
   event.preventDefault();
 
@@ -66,14 +67,14 @@ async function login(event) {
   }
 
   try {
-    const res = await fetch("https://women-safety-application.onrender.com", {
+    const res = await fetch(API_URL + "/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
 
     if (!res.ok) {
-      const err = await res.json();
+      const err = await res.json().catch(() => ({ error: "Login failed" }));
       throw new Error(err.error || "Login failed");
     }
 
@@ -85,7 +86,6 @@ async function login(event) {
     alert("Login failed: " + error.message);
   }
 }
-
 // 👥 Fetch Contacts
 async function loadContacts() {
   try {
